@@ -6,6 +6,8 @@ nav:
         - 2. Backtracking: chapters/backtracking.md
         - 1. Introduction: chapters/introduction.md
         - 0. Organization: chapters/organization.md
+    - Programs:
+        - Linked List: programs/linked_list.md
     - Quick Review: review.md
     - Log: log.md
 theme: mkdocs
