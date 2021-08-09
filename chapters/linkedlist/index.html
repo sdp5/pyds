@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>3. Linked List - Python DS</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">Python DS</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Chapters 1-7 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="./" class="dropdown-item active">3. Linked List</a>
+</li>
+                                    
+<li>
+    <a href="../backtracking/" class="dropdown-item">2. Backtracking</a>
+</li>
+                                    
+<li>
+    <a href="../introduction/" class="dropdown-item">1. Introduction</a>
+</li>
+                                    
+<li>
+    <a href="../organization/" class="dropdown-item">0. Organization</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Programs <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../programs/linked_list/" class="dropdown-item">Linked List</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../review/" class="nav-link">Quick Review</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../log/" class="nav-link">Log</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../.." class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../backtracking/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#ch-3-linked-lists" class="nav-link">CH 3: Linked Lists</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#notes" class="nav-link">Notes</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="ch-3-linked-lists">CH 3: Linked Lists</h1>
+<hr />
+<h2 id="notes">Notes</h2>
+<p><div style="padding: 1%;background-color: #f2fafc;margin-bottom: 1%"></div></p>
+<h4 id="31-what-is-a-linked-list">3.1 What is a Linked List?</h4>
+<p>A data structure used for storing collections of data. Properties:</p>
+<ul>
+<li>Successive elements are connected by pointers</li>
+<li>The last element points to <code>NULL</code></li>
+<li>Can grow or shrink in size during execution of a program</li>
+<li>Can be made just as long as required (<em>until systems memory exhausts</em>)</li>
+<li>Does not waste memory space (<em>but takes some extra memory for pointers</em>). It allocates memory as list grows.</li>
+</ul>
+<h4 id="35-comparison-of-linked-lists-with-arrays-and-dynamic-arrays">3.5 Comparison of Linked Lists with Arrays and Dynamic Arrays</h4>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Linked List</th>
+<th>Array</th>
+<th>Dynamic Array</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Indexing</td>
+<td>O(n)</td>
+<td>O(1)</td>
+<td>O(1)</td>
+</tr>
+<tr>
+<td>Insertion/deletion at beginning</td>
+<td>O(1)</td>
+<td>O(n), if array is not full (<em>for shifting the elements</em>)</td>
+<td>O(n)</td>
+</tr>
+<tr>
+<td>Deletion at ending</td>
+<td>O(n)</td>
+<td>O(1)</td>
+<td>O(n)</td>
+</tr>
+<tr>
+<td>Insertion in middle or <br/>Deletion in middle</td>
+<td>O(n)</td>
+<td>O(n), if array is not full (<em>for shifting the elements</em>)</td>
+<td>O(n)</td>
+</tr>
+<tr>
+<td>Wasted space</td>
+<td>O(n) (<em>for pointers</em>)</td>
+<td>0</td>
+<td>O(n)</td>
+</tr>
+</tbody>
+</table>
+<h4 id="36-singly-linked-lists">3.6 Singly Linked Lists</h4>
+<p>This list consists of a number of nodes in which each node has a next pointer to the following element. The link of the last node in the list is <code>NULL</code>.</p>
+<pre><code class="python">
+# Node of a Singly Linked List
+class Node:
+
+    def __init__(self):
+        self.data = None
+        self.next = None
+
+    def set_data(self, data):
+        self.data = data
+
+    def get_data(self):
+        return self.data
+
+    def set_next(self, next):
+        self.next = next
+
+    def get_next(self, next):
+        return self.next
+
+    def has_next(self):
+        return self.next != None
+
+</code></pre>
+
+<p><strong>Traversing the Linked List</strong></p>
+<pre><code class="python">
+def list_length(self):
+    current = self.head
+    count = 0
+
+    while current != None:
+        count += 1
+        current = current.get_next()
+    return count
+
+</code></pre>
+
+<p>Time Complexity: O(n) and Space Complexity: O(1)</p>
+<p><strong>Inserting a Node</strong></p>
+<pre><code class="python">
+def insert_at_beginning(self, data):
+    new_node = Node()
+    new_node.set_data(data)
+
+    if self.length == 0:
+        self.head = new_node
+    else:
+        new_node.set_next(self.head)
+        self.head = new_node
+    self.length += 1
+
+def insert_at_end(self, data):
+    new_node = Node()
+    new_node.set_data(data)
+
+    current = self.head
+
+    while current.get_next() != None:
+        current = current.get_next()
+
+    current.set_next(new_node)
+    self.length += 1
+
+def insert_at_pos(self, pos, data):
+    if pos &gt; self.length or pos &lt; 0:
+        return None
+    else:
+        if pos == 0:
+            self.insert_at_beginning(data)
+        else:
+            if pos == self.length:
+                self.insert_at_end(data)
+            else:
+                new_node = Node()
+                new_node.set_data(data)
+                count = 1
+                current = self.head
+
+                while count &lt; pos-1:
+                    count += 1
+                    current = current.get_next()
+                new_node.set_next(current.get_next())
+                current.set_next(new_node)
+                self.length += 1
+
+</code></pre>
+
+<p>Time Complexity: O(n) and Space Complexity: O(1)</p>
+<p><strong>Deleting a Node</strong></p>
+<pre><code class="python">
+def delete_from_beginning(self):
+    if self.length == 0:
+        print(&quot;The list is empty&quot;)
+    else:
+        self.head = self.head.get_next()
+        self.length -= 1
+
+def delete_last_node_from_singly_listed_list(self):
+    if self.length == 0:
+        print(&quot;The list is empty&quot;)
+    else:
+        currentnode = self.head
+        previousnode = self.head
+
+        while currentnode.get_next() != None:
+            previousnode = currentnode
+            currentnode = currentnode.get_next()
+
+        previousnode.set_next(None)
+        self.length -= 1
+
+def delete_from_linked_list_with_node(self, node):
+    if self.length == 0:
+        raise ValueError(&quot;List is empty&quot;)
+    else:
+        current = self.head
+        previous = None
+        found = False
+
+        while not found:
+            if current = node:
+                found = True
+            elif current is None:
+                raise ValueError(&quot;Node not in Linked List&quot;)
+            else:
+                previous = current
+                current = current.get_next()
+
+        if previous is None:
+            self.head = current.get_next()
+        else:
+            previous.set_next(current.get_next())
+        self.length -= 1
+
+def delete_value(self, value):
+    currentnode = self.head
+    previousnode = self.head
+
+    while currentnode.next != None or currentnode.value != value:
+        if currentnode.value == value:
+            previousnode.next = currentnode.next
+            self.length -= 1
+            return
+        else:
+            previousnode = currentnode
+            currentnode = currentnode.next
+    print(&quot;The value provided is not present&quot;)
+
+def delete_at_position(self, pos):
+    count = 0
+    currentnode = self.head
+    previousnode = self.head
+
+    if pos &gt; self.length or pos &lt; 0:
+        print(&quot;The position does not exist&quot;)
+    else:
+        while currentnode.next != None or count &lt; pos:
+            count += 1
+            if count == pos:
+                previousnode.next = currentnode.next
+                self.length -= 1
+                return
+            else:
+                previousnode = currentnode
+                currentnode = currentnode.next
+
+</code></pre>
+
+<p>Time Complexity: O(n) and Space Complexity: O(1)</p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

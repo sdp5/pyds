@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>0. Organization - Python DS</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">Python DS</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Chapters 1-7 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../linkedlist/" class="dropdown-item">3. Linked List</a>
+</li>
+                                    
+<li>
+    <a href="../backtracking/" class="dropdown-item">2. Backtracking</a>
+</li>
+                                    
+<li>
+    <a href="../introduction/" class="dropdown-item">1. Introduction</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active">0. Organization</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Programs <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../programs/linked_list/" class="dropdown-item">Linked List</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../review/" class="nav-link">Quick Review</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../log/" class="nav-link">Log</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../introduction/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../../programs/linked_list/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#ch-0-organization-of-chapters" class="nav-link">CH 0: Organization of Chapters</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="ch-0-organization-of-chapters">CH 0: Organization of Chapters</h1>
+<hr />
+<div style="padding: 1%;background-color: #f2fafc;margin-bottom: 2%">
+    <h2>Notes</h2>
+</div>
+
+<h4 id="three-things-required-to-build-good-understanding-of-data-structure-are">Three things required to build good understanding of data structure are:</h4>
+<ul>
+<li>How the information is arranged in the memory of the computer?</li>
+<li>Become familiar with the algorithms for manipulating the information contained in the data structure.</li>
+<li>Understand the performance characteristics of the data structure.<ul>
+<li>to select a suitable data structure for a particular application.</li>
+</ul>
+</li>
+</ul>
+<h3 id="definitions">Definitions</h3>
+<p><strong>Recursion</strong> is the process of defining a function or calculating a number by the repeated application of an algorithm.</p>
+<p><strong>Backtracking</strong> The solution process consists of working through a sequence of decision points in which each choice leads further along some path (example Trees or Graphs). In case of incorrect choice somewhere along the way, developer has to backtrack to a previous decision point and try a different path. Backtracking algorithms use this approach, moreover, it's a form of recursion.</p>
+<p><strong>Linked Lists</strong> (dynamic) Number of nodes can grow and shrink on demand. Used to create trees, graphs, hashing, etc.</p>
+<p><strong>Stacks</strong> (abstract) A container of objects that are inserted and removed according to the last-in-first-out <code>LIFO</code> principle. Applications:</p>
+<ul>
+<li>Internal creation of function parameters and local variables.</li>
+<li>Compiler's syntax check for matching braces; Support for recursion.</li>
+<li>Can act as an auxiliary data structure for other abstract data types.</li>
+</ul>
+<p><strong>Queues</strong> (abstract) Similar to <em>stacks</em> but follow <code>FIFO</code>. Applications:</p>
+<ul>
+<li>In OS, for controlling access to shared system resources such as printers, files, communication lines, disks and tapes.</li>
+<li>Computer systems must often provide a holding area <code>buffer</code> for messages between two processes, two programs, or even two systems.</li>
+<li>Can act as an auxiliary data structure for other abstract data types.</li>
+</ul>
+<p><strong>Trees</strong> (abstract) Data organization to make the data insertion or deletion or search faster. Applications:</p>
+<ul>
+<li>Library db, School's student db, employ or patient db; any db would be implemented using trees.</li>
+<li>OS file systems; Can act as an auxiliary data structure for other abstract data types.</li>
+</ul>
+<p>Tree variants are classified by the number of children and the way of interconnecting them.</p>
+<p><strong>Priority Queues</strong> (abstract) Maintain a collection of prioritized elements. Application: operating systems often use a priority queue for the ready queue of processes to run on the CPU.</p>
+<p><strong>Graphs</strong> (fundamental - non linear) Collection of nodes <code>vertices</code> and their connections <code>edges</code>. Used to model many types of relations and processes.</p>
+<p><strong>Disjoint Set</strong> (abstract) Collection of disjoint sets <code>partition</code>. Example: <em>Motorola</em>, <em>YouTube</em>, and <em>Android</em> are all members of the <em>Google</em> set.
+Two operations:</p>
+<ul>
+<li>Union: merging of two sets into one!</li>
+<li>Find Query: takes an item and returns which set it belongs to. Application: Maze generation and Kruskal's algo for computing the minimum spanning tree of a graph.</li>
+</ul>
+<p><strong>Sorting</strong> Arranges the elements of a list in a certain order; sometimes reduces the complexity of problem significantly. Applications: searching elements and db algorithms.</p>
+<p><strong>Searching</strong> The process of finding an item with specified properties from a collection of items. Data organization improves the searching process.</p>
+<p><strong>Selection Algo</strong> (<em>k<sup>th</sup></em> order statistic) Finding the minimum, maximum and median elements in a given list.</p>
+<p><strong>Symbol Tables</strong> (dictionaries) Examples: spelling checker, data dictionary found in DBMS, symbol tables generated by loaders, assemblers, and compilers, as well as routing tables in networking components (DNS Lookup).</p>
+<p><strong>Hashing</strong> Technique used for storing and retrieving information as fast as possible. Used in optimal search and symbol tables. The worst case complexity of hashing is O(n), but it gives O(1) on the average.</p>
+<p><strong>String Algo</strong> Operations like auto completion (on CLI or browser) or string matching need a data structure which stores the string data efficiently.</p>
+<p><strong>Algo Design Techniques</strong> There are different ways of classifying the algorithms like Greedy, Divide and Conquer, and Dynamic Programming.</p>
+<p><strong>Greedy Algo</strong> (<em>single-minded</em> algorithm) Process that looks for a simple, easy to implement solutions to complex, multi-step problems by deciding which next step will provide the most obvious benefit. Example: selection sort, Prim's algorithms, Kruskal's algorithms, Dijkstra algorithm, Huffman coding algorithm etc.</p>
+<p><strong>Divide and Conquer</strong> Principles: (examples include binary search, merge sort, etc.)</p>
+<ul>
+<li>Divide - break the problem into several subproblems that are similar to the original problem but smaller in size.</li>
+<li>Conquer - solve the subproblems recursively.</li>
+<li>Base case - If the subproblem size is small enough then solve the subproblem directly without more recursion.</li>
+<li>Combine - the solutions to create a solution for the original problem.</li>
+</ul>
+<p><strong>Dynamic Programming</strong> (optimization over plain recursion) Breaking down a complex problem into a collection of simpler subproblems. Solving each of those and storing their solutions using a memory-based data structure (array, map, etc).</p>
+<p><strong>Complexity Classes</strong> (resources required during computation - time vs space) Classification is done based on the running time (or memory) that an algorithm takes for solving the problem.</p>
+<p><strong>Bit-wise Hacking</strong> Applications:</p>
+<ul>
+<li>Kind of file format or network protocol that uses individual bits or group of bits to represent pieces of information.</li>
+<li>Setting individual pixels on the screen by directly manipulating the video memory, where every pixel's color is represented by 1 or 4 bits.</li>
+<li>Compute some kind of checksum (possibly, parity or CRC) or hash value.</li>
+</ul></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

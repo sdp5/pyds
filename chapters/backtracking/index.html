@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>2. Backtracking - Python DS</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">Python DS</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Chapters 1-7 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../linkedlist/" class="dropdown-item">3. Linked List</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active">2. Backtracking</a>
+</li>
+                                    
+<li>
+    <a href="../introduction/" class="dropdown-item">1. Introduction</a>
+</li>
+                                    
+<li>
+    <a href="../organization/" class="dropdown-item">0. Organization</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Programs <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../programs/linked_list/" class="dropdown-item">Linked List</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../review/" class="nav-link">Quick Review</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../log/" class="nav-link">Log</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../linkedlist/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../introduction/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#ch-2-recursion-and-backtracking" class="nav-link">CH 2: Recursion and Backtracking</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#notes" class="nav-link">Notes</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#problems" class="nav-link">Problems</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="ch-2-recursion-and-backtracking">CH 2: Recursion and Backtracking</h1>
+<hr />
+<h2 id="notes">Notes</h2>
+<p><div style="padding: 1%;background-color: #f2fafc;margin-bottom: 1%"></div></p>
+<h4 id="22-what-is-recursion">2.2 What is Recursion?</h4>
+<p>A recursive method solves a problem by calling a copy of itself to work on a smaller problem. It is important to ensure that the recursion terminates. The sequence of smaller problems must eventually converge on the base case. </p>
+<h4 id="23-why-recursion">2.3 Why Recursion?</h4>
+<p>Generally, loops are turned into recursive functions when they are compiled or interpreted.</p>
+<h4 id="25-recursion-and-memory">2.5 Recursion and Memory</h4>
+<p>Each recursive call makes a new copy of that method (actually only the variables) in memory. Once a method ends (that is, returns some data), the copy of that returning method is removed from memory.</p>
+<pre><code>def print_func(n):
+    if n == 0:                  # this is the terminating base case
+        return 0
+    else:
+        print n
+        return print_func(n-1)  # recursive call to itself again
+    print(print_func(4))
+</code></pre>
+
+<h4 id="26-recursion-versus-iteration">2.6 Recursion versus Iteration</h4>
+<p><strong>Recursion</strong></p>
+<ul>
+<li>Terminates when base case is reached.</li>
+<li>Each recursive call requires extra space on the stack frame (memory).</li>
+<li>If we get infinite recursion, the program may run out of memory and result in stack overflow.</li>
+<li>Solutions to some problems are easier to formulate recursively.</li>
+</ul>
+<p><strong>Iteration</strong></p>
+<ul>
+<li>Terminates when a condition proven to be false.</li>
+<li>Each iteration does not require an extra space.</li>
+<li>An infinite loop could loop forever since there is no extra memory being created.</li>
+<li>Iterative solutions to a problem may not always be as obvious as a recursive solution.</li>
+</ul>
+<h4 id="27-notes-on-recursion">2.7 Notes on Recursion</h4>
+<ul>
+<li>Recursive algorithms have two types of cases: <strong>recursive</strong> cases and <strong>base</strong> cases. </li>
+<li>Every recursive function case must terminate at a base case.</li>
+<li>Generally, iterative solutions are more efficient than recursive solutions (<em>due to overhead of function calls</em>).</li>
+<li>A recursive algorithm can be implemented without recursive function calls using a stack, but it's usually more trouble than its worth.</li>
+<li>For some problems, there are no obvious iterative algorithms. They're best suited for recursive solutions.</li>
+</ul>
+<h4 id="28-example-algorithms-of-recursion">2.8 Example Algorithms of Recursion</h4>
+<ul>
+<li>Fibonacci Series, Factorial Finding</li>
+<li>Merge Sort, Quick Sort</li>
+<li>Binary Search</li>
+<li>Tree Traversals and other problems: InOrder, PreOrder, PostOrder</li>
+<li>Graph Traversals: Depth First Search and Breadth First Search</li>
+<li>Dynamic Programming Examples</li>
+<li>Divide and Conquer Algorithms</li>
+<li>Tower of Hanoi</li>
+<li>Backtracking Algorithms</li>
+</ul>
+<h4 id="210-what-is-backtracking">2.10 What is Backtracking?</h4>
+<p>Backtracking systematically searches for a solution to a problem among all available options. We start with one possible option out of many available options and try to solve the problem if we are able to solve the problem with the selected move then we will print the solution else we will backtrack and select some other option and try to solve it. Backtracking can be thought of as a selective tree/graph traversal method.</p>
+<ul>
+<li>Sometimes the best algorithm for a problem is to try all possibilities.</li>
+<li>This is always slow, but there are standard tools that can be used to help.</li>
+<li>Tools: algorithms for generating basic objects, such as binary strings [2<sup>n</sup> possibilities for n-bit string], permutations <code>[n!]</code>, combinations <code>[n!/r!(n-1)!]</code>, general strings [k -ary strings of length n has k<sup>n</sup> possibilities], etc...</li>
+<li>Backtracking speeds the exhaustive search by pruning.</li>
+</ul>
+<p><strong>Example Algorithms:</strong></p>
+<ul>
+<li>Binary Strings: generating all binary strings</li>
+<li>Generating k -ary Strings</li>
+<li>N-Queens Problem</li>
+<li>The Knapsack Problem</li>
+<li>Generalized Strings</li>
+<li>Hamiltonian Cycles</li>
+<li>Graph Coloring Problem</li>
+</ul>
+<hr />
+<h2 id="problems">Problems</h2>
+<p><div style="padding: 1%;background-color: #f2fafc;margin-bottom: 1%"></div></p>
+<h4 id="problem-1-discuss-towers-of-hanoi-puzzle">Problem-1: Discuss Towers of Hanoi puzzle.</h4>
+<p>The Towers of Hanoi consists of three rods (or pegs or towers) and a number of disks of different sizes which can slide onto any rod. The puzzle starts with the disks on one rod in ascending order of size, the smallest at the top, thus making a conical shape. The objective of the puzzle is to move the entire stack to another rod, satisfying the following rules:</p>
+<ul>
+<li>Only one disk may be moved at a time.</li>
+<li>Each move consists of taking the upper disk from one of the rods and sliding it onto another rod, on top of the other disks that may already be present on that rod.</li>
+<li>No disk may be placed on top of a smaller disk.</li>
+</ul>
+<p>Algorithm:</p>
+<ul>
+<li>Move the top <code>n-1</code> disks from Source to Auxiliary tower,</li>
+<li>Move the n<sup>th</sup> disk from Source to Destination tower,</li>
+<li>Move the <code>n-1</code> disks from Auxiliary tower to Destination tower.</li>
+<li>Transferring the top <code>n-1</code> disks from Source to Auxiliary tower can again be thought of as a fresh problem and can be solved in the same manner.</li>
+</ul>
+<pre><code class="python">
+def towers_of_hanoi(numberOfDisks, startPeg=1, endPeg=3):
+    if numberOfDisks:
+        towers_of_hanoi(numberOfDisks-1, startPeg, 6-startPeg-endPeg)
+        print(&quot;Move disk %d from peg %d to peg %d&quot; % (numberOfDisks, startPeg, endPeg))
+        towers_of_hanoi(numberOfDisks-1, 6-startPeg-endPeg, endPeg)
+
+towers_of_hanoi(numberOfDisks=4)
+
+</code></pre>
+
+<h4 id="problem-4-generate-all-the-strings-of-length-n-drawn-from-0-k-1">Problem-4: Generate all the strings of length n drawn from 0... k-1.</h4>
+<p>Let us assume we keep current k-ary string in an array A[0.. n-1].</p>
+<pre><code class="python">
+def range_to_list(k):
+    result = []
+    for i in range(0, k):
+        result.append(str(i))
+    return result
+
+def base_k_strings(n, k):
+    if n == 0: return []
+    if n == 1: return range_to_list(k)
+    return [digit+bitstring for digit in base_k_strings(1, k) for bitstring in base_k_strings(n-1, k)]
+
+print base_k_strings(4, 3)
+
+</code></pre>
+
+<p>Complexity would be O(k<sup>n</sup>).</p>
+<h4 id="problem-6-finding-the-length-of-connected-cells-of-1s-regions-in-a-matrix-of-0s-and-1s">Problem-6: Finding the length of connected cells of 1s (regions) in a matrix of 0s and 1s.</h4>
+<pre><code class="python">
+def getval(A, i, j, L, H):
+    if(i &lt; 0 or i &gt;= L or j &lt; 0 or j &gt;= H):
+        return 0
+    else:
+        return A[i][j]
+
+def find_max_block(A, r, c, L, H, size):
+    global maxsize
+    global cntarr
+    if(r &gt;= L or c &gt;= H):
+        return
+    cntarr[r][c] = 1
+    size += 1
+    if (size &gt; maxsize):
+        maxsize = size
+    # search in eight directions
+    direction = [[-1, 0], [-1, -1], [0, -1], [1, -1], [1, 0], [1, 1], [0, 1], [-1, 1]]
+    for i in range(0,7):
+        newi = r + direction[i][0]
+        newj = c + direction[i][1]
+        val = getval(A, newi, newj, L, H)
+        if (val &gt; 0 and (cntarr[newi][newj] == 0)):
+            find_max_block(A, newi, newj, L, H, size)
+    cntarr[r][c] = 0
+
+def get_max_ones(A, rmax, colmax):
+    global maxsize
+    global size
+    global cntarr
+
+    for i in range(0, rmax):
+        for j in range(0, colmax):
+            if(A[i][j] == 1):
+                find_max_block(A, i, j, rmax, colmax, 0)
+
+    return maxsize
+
+</code></pre>
+
+<h4 id="problem-7-path-finding-problem">Problem-7: Path finding problem</h4>
+<p>Given an n*n matrix of blocks with a source upper left block, we want to find the path from the source to the destination (<em>the lower right block</em>). We can only move downwards and to the left. Also a path is given by 1 and a wall is given by 0.</p>
+<p><strong>Algorithm</strong>:</p>
+<p>If we have reached the destination point return an array containing only the position of the destination else</p>
+<ol>
+<li>Move in the forwards direction and check if this leads to a solution.</li>
+<li>If option a does not work, then move down.</li>
+<li>If either work, add the current position to the solution obtained at either 1 or 2.</li>
+</ol>
+<pre><code class="python">
+def path_finder(Matrix, position, N):
+    # returns a list of the paths taken
+    if position == (N-1, N-1):
+        return [(N-1, N-1)]
+    x, y = position
+    if x + 1 &lt; N and Matrix[x+1][y] == 1:
+        a = path_finder(Matrix, (x + 1, y), N)
+        if a != None:
+            return [(x, y)] + a
+
+    if y + 1 &lt; N and Matrix[x][y+1] == 1:
+        b = path_finder(Matrix, (x, y + 1), N)
+        if b != None:
+            return [(x, y)] + b
+
+Matrix = [[1,1,1,1,0],[0,1,0,1,0],[0,1,0,1,0],[0,1,0,0,0],[1,1,1,1,1]]
+print(path_finder(Matrix, (0,0), 5))
+
+</code></pre></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

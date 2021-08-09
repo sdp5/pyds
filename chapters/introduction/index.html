@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>1. Introduction - Python DS</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+
+        <script src="../../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">Python DS</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href="../.." class="nav-link">Home</a>
+                            </li>
+                            <li class="dropdown active">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Chapters 1-7 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../linkedlist/" class="dropdown-item">3. Linked List</a>
+</li>
+                                    
+<li>
+    <a href="../backtracking/" class="dropdown-item">2. Backtracking</a>
+</li>
+                                    
+<li>
+    <a href="./" class="dropdown-item active">1. Introduction</a>
+</li>
+                                    
+<li>
+    <a href="../organization/" class="dropdown-item">0. Organization</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Programs <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../../programs/linked_list/" class="dropdown-item">Linked List</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../review/" class="nav-link">Quick Review</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../../log/" class="nav-link">Log</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../backtracking/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../organization/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="1"><a href="#ch-1-introduction" class="nav-link">CH 1: Introduction</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-level="2"><a href="#notes" class="nav-link">Notes</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#examples" class="nav-link">Examples</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-level="2"><a href="#problems" class="nav-link">Problems</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="ch-1-introduction">CH 1: Introduction</h1>
+<hr />
+<h2 id="notes">Notes</h2>
+<p><div style="padding: 1%;background-color: #f2fafc;margin-bottom: 1%"></div></p>
+<p><em>find the complexity of any given algorithm</em></p>
+<h4 id="11-variables">1.1 Variables</h4>
+<p>Variables are names (x and y) of the placeholders for representing data.</p>
+<h4 id="12-data-types">1.2 Data Types</h4>
+<p>A set of data with predefined values, example: integer, floating point, unit number, character, string, etc. In memory we combine 2 bytes (16 bits) and call it an integer. Similarly, 4 bytes (32 bits) for float.</p>
+<ul>
+<li>System defined data types (Primitive data types) <code>int</code>, <code>float</code>, <code>char</code>, <code>double</code>, <code>bool</code>, etc.</li>
+<li>User defined data types <code>structures</code>, <code>union</code>, <code>classes</code></li>
+</ul>
+<h4 id="13-data-structures">1.3 Data Structures</h4>
+<p>A special format for organizing and storing data so that it can be used efficiently. Example <code>arrays</code>, <code>files</code>, <code>linked list</code>, <code>stacks</code>, <code>queues</code>, <code>trees</code>, <code>graphs</code> and so on.</p>
+<ul>
+<li>Linear data structure: Linked List, Stacks and Queues.</li>
+<li>Non-linear data structure: Trees and Graphs.</li>
+</ul>
+<h4 id="14-abstract-data-types-adts">1.4 Abstract Data Types (ADTs)</h4>
+<p>When we combine the data structures with their operations.
+An ADT has two parts:</p>
+<ul>
+<li>Declaration of data</li>
+<li>Declaration of operations.</li>
+</ul>
+<p>Few examples are <code>Linked Lists</code>, <code>Stacks</code>, <code>Queues</code>, <code>Priority Queues</code>, <code>Binary Trees</code>, <code>Dictionaries</code>, <code>Disjoint Sets (Union and Find)</code>, <code>Hash Tables</code>, <code>Graphs</code> and many others.</p>
+<h4 id="15-what-is-an-algorithm">1.5 What is an Algorithm?</h4>
+<h4 id="16-why-the-analysis-of-algorithms">1.6 Why the Analysis of Algorithms?</h4>
+<p>The step-by-step unambiguous instructions to solve a given problem. Criteria:</p>
+<ul>
+<li>Correctness (<em>Does the algorithm give solution to the problem in a finite number of steps?</em>)</li>
+<li>Efficiency (<em>How much resources - memory and time - does it take to execute?</em>)</li>
+</ul>
+<p>Helps us to determine which algorithm is most efficient in terms of time and space consumed.</p>
+<h4 id="18-what-is-running-time-analysis">1.8 What is Running Time Analysis?</h4>
+<p>The process of determining how processing time increases as the size of the problem (input size) increases. Common types:</p>
+<ul>
+<li>Size of an array</li>
+<li>Polynomial degree</li>
+<li>Number of elements in a matrix</li>
+<li>Number of bits in the binary representation of the input</li>
+<li>Vertices and edges in a graph</li>
+</ul>
+<h4 id="19-how-to-compare-algorithms">1.9 How to compare Algorithms</h4>
+<p>Let us assume that we express the running time of a given algorithm as a function of the input size <strong>n</strong> (i.e. <code>f(n)</code>) and compare these different functions corresponding to running times. This kind of comparison is independent of machine time, programming style, etc.</p>
+<h4 id="110-what-is-rate-of-growth">1.10 What is rate of growth?</h4>
+<p>The rate at which the running time increases as a function of input is called <em>rate of growth</em>. 
+<br/><code>n<sup>4</sup> + 2n<sup>2</sup> + 100n + 500 ~ n<sup>4</sup></code></p>
+<h4 id="111-commonly-used-rates-of-growth">1.11 Commonly Used Rates of Growth</h4>
+<table>
+<thead>
+<tr>
+<th>Time Complexity</th>
+<th>Name</th>
+<th>Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Constant</td>
+<td>Adding an element to the front of the linked list</td>
+</tr>
+<tr>
+<td>log n</td>
+<td>Logarithmic</td>
+<td>Finding an element in a sorted array</td>
+</tr>
+<tr>
+<td>n</td>
+<td>Linear</td>
+<td>Finding an element in a unsorted array</td>
+</tr>
+<tr>
+<td>n log n</td>
+<td>Linear Logarithmic</td>
+<td>Sorting n items by divide-n-conquer <code>MergeSort</code></td>
+</tr>
+<tr>
+<td>n<sup>2</sup></td>
+<td>Quadratic</td>
+<td>Shortest path between two nodes in a graph</td>
+</tr>
+<tr>
+<td>n<sup>3</sup></td>
+<td>Cubic</td>
+<td>Matrix Multiplication</td>
+</tr>
+<tr>
+<td>2<sup>n</sup></td>
+<td>Exponential</td>
+<td>The Towers of Hanoi problem</td>
+</tr>
+</tbody>
+</table>
+<h4 id="112-types-of-analysis">1.12 Types of Analysis</h4>
+<p>Algorithm can be represented with multiple expressions: one for the case where it takes less time (<em>best case</em>) and another for the case where it takes more time (<em>worst case</em>).</p>
+<ul>
+<li><strong>Worst case</strong>: Defines the input for which the algorithm takes a long time (slowest time to complete).<br/><code>f(n) = n<sup>2</sup> + 500</code></li>
+<li><strong>Best case</strong>: Defines the input for which the algorithm takes the least time (fastest time to complete).<br/><code>f(n) = n + 100n + 500</code></li>
+<li><strong>Average case</strong>: Run the algorithm many times, using many different inputs that come from some distribution that generates these inputs, compute the total running time (by adding the individual times), and divide by the number of trails. <code>Lower Bound &lt;= Average Time &lt;= Upper Bound</code></li>
+</ul>
+<h4 id="113-big-o-notation">1.13 Big-O Notation</h4>
+<p>Represented as <code>f(n) = O(g(n))</code>, where <code>g(n)</code> gives the maximum rate of growth for <code>f(n)</code> at larger values of n. n<sub>0</sub>, called as <strong>threshold</strong>, is the point from which we need to consider the rate of growth for a given algorithm. Defined as  <code>O(g(n)) = {f(n): positive constants c and n<sub>0</sub> such that 0 &lt;= f(n) &lt;= cg(n) for all n &gt;= n<sub>0</sub>}</code></p>
+<h4 id="115-omega-notation">1.15 Omega-Ω Notation</h4>
+<p>This notation gives the tighter lower bound of the given algorithm and we represent it as <code>f(n) = Ω(g(n))</code>. That means, at larger values of n, the tighter lower bound of <code>f(n)</code> is <code>g(n)</code>. 2n = Ω(n), n<sup>3</sup> = Ω(n<sup>3</sup>), logn = Ω(logn) as <code>Ω(g(n)) = {f(n): positive constants c and n<sub>0</sub> such that 0 &lt;= cg(n) &lt;= f(n) for all n &gt;= n<sub>0</sub>}</code></p>
+<h4 id="116-theta-notation">1.16 Theta-Θ Notation</h4>
+<p>This notation decides whether the upper and lower bounds of a given function (<em>algorithm</em>) are the same. If the upper bound (O) and the lower bound (Ω) give the same result, then the Θ notation will also have the same rate of growth. Defined as <code>Θ(g(n)) = {f(n): there exist positive constants c<sub>1</sub>, c<sub>2</sub> and n<sub>0</sub> such that 0 &lt;= c<sub>1</sub>g(n) &lt;= f(n) &lt;= c<sub>2</sub>g(n) for all n &gt;= n<sub>0</sub>}</code></p>
+<p>For analysis (<em>best</em>, <em>worst</em> and <em>average</em>) case, we try to give the upper bound (O) and lower bound (Ω) and average running time (Θ). We generally focus on upper bound (O). g(n) is the asymptotic curve for f(n).</p>
+<h4 id="118-guidelines-for-asymptotic-analysis">1.18 Guidelines for Asymptotic Analysis</h4>
+<ul>
+<li><strong>Loops</strong>: The running time of a loop is the running time of the statements inside the loop (<em>including tests</em>) multiplied by the number of iterations.
+<code>Total time = a constant c x n = cn = O(n)</code></li>
+<li><strong>Nested Loops</strong>: Total running time is the product of the sizes of all the loops.<br/><code>Total time = c x n x n = cn<sup>2</sup> = O(n<sup>2</sup>)</code></li>
+<li><strong>Consecutive statements</strong>: Add the time complexities of each statement.<br/><code>Total time = c<sub>0</sub> + c<sub>1</sub>n + c<sub>2</sub>n<sup>2</sup> = O(n<sup>2</sup>)</code></li>
+<li><strong>If-then-else statements</strong>: Worst-case running time: the test, plus either the <em>then</em> part <em>or</em> the else part.<br/><code>Total time = c<sub>0</sub> + c<sub>1</sub> * n = O(n)</code></li>
+<li><strong>Logarithmic complexity</strong>: An algorithm is <code>O(logn)</code> if it takes a constant time to cut the problem size by a fraction (usually by <sup>1</sup>/<sub>2</sub>). <code>Total time = log(2<sup>k</sup>) = klog2 = O(logn)</code> An example: binary search (<em>finding a word in a dictionary of n pages</em>) (<strong>1</strong>) Look at the center point in the dictionary (<strong>2</strong>) Is the word towards the left or right of the center? (<strong>3</strong>) Repeat the process with the left or right part of the dictionary until the word is found.</li>
+</ul>
+<h4 id="121-master-theorem-for-divide-and-conquer-recurrences">1.21 Master Theorem for Divide and Conquer Recurrences</h4>
+<p>Divide and conquer algorithms divide the problem into sub-problems, each of which is a part of the original problem, and then perform some additional work to compute the final answer. Example: for a merge sort algorithm, running time equation could be <code>T(n) = 2T(<sup>n</sup>/<sub>2</sub>) + O(n)</code></p>
+<h4 id="126-amortized-analysis">1.26 Amortized Analysis</h4>
+<p>Amortized analysis is a worst-case analysis, but for a sequence of operations rather than for individual operations. It generally applies to a method that consists of a sequence of operations, where the vast majority of the operations are cheap, but some of the operations are expensive.</p>
+<p>When one event in a sequence affects the cost of later events:</p>
+<ul>
+<li>One particular task may be expensive.</li>
+<li>But it may leave data structure in a state that the next few operations become easier.</li>
+</ul>
+<p><strong>Example</strong>: Let us consider an array of elements from which we want to find the k<sup>th</sup> smallest element. We can solve this problem using sorting. After sorting the given array, we just need to return the k<sup>th</sup> element from it. The cost of performing the sort (<em>assuming comparison based sorting algorithm</em>) is <code>O(nlogn)</code>. If we perform <em>n</em> such selections then the average cost of each selection is <code>O(nlogn/n) = O(logn)</code>. This clearly indicates that sorting once is reducing the complexity of subsequent operations. Hence, while the recurrence relation looks exponential, the solution to the recurrence relation here gives a different result.</p>
+<hr />
+<h2 id="examples">Examples</h2>
+<p><div style="padding: 1%;background-color: #f2fafc;margin-bottom: 1%"></div></p>
+<h4 id="functions-by-decreasing-order-of-growth">Functions by decreasing order of growth.</h4>
+<table>
+<thead>
+<tr>
+<th>Function</th>
+<th>Rate of Growth</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(n + 1)!</td>
+<td>O(n!)</td>
+</tr>
+<tr>
+<td>n!</td>
+<td>O(n!)</td>
+</tr>
+<tr>
+<td>4<sup>n</sup></td>
+<td>O(4<sup>n</sup>)</td>
+</tr>
+<tr>
+<td>n * 3<sup>n</sup></td>
+<td>O(n3<sup>n</sup>)</td>
+</tr>
+<tr>
+<td>3<sup>n</sup> + n<sup>2</sup> + 20n</td>
+<td>O(3<sup>n</sup>)</td>
+</tr>
+<tr>
+<td>(<sup>3</sup>/<sub>2</sub>)<sup>n</sup></td>
+<td>O((<sup>3</sup>/<sub>2</sub>)<sup>n</sup>)</td>
+</tr>
+<tr>
+<td>4n<sup>2</sup></td>
+<td>O(n<sup>2</sup>)</td>
+</tr>
+<tr>
+<td>4<sup>lgn</sup></td>
+<td>O(n<sup>2</sup>)</td>
+</tr>
+<tr>
+<td>n<sup>2</sup> + 200</td>
+<td>O(n<sup>2</sup>)</td>
+</tr>
+<tr>
+<td>20n + 500</td>
+<td>O(n)</td>
+</tr>
+<tr>
+<td>2<sup>lgn</sup></td>
+<td>O(n)</td>
+</tr>
+<tr>
+<td>n<sup>2/3</sup></td>
+<td>O(n<sup>2/3</sup>)</td>
+</tr>
+<tr>
+<td>1</td>
+<td>O(1)</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="problems">Problems</h2>
+<p><div style="padding: 1%;background-color: #f2fafc;margin-bottom: 1%"></div></p>
+<h4 id="problem-28-write-a-recursive-function-for-the-running-time-tn-of-the-function-given-below">Problem-28: Write a recursive function for the running time T(n) of the function given below.</h4>
+<pre><code class="python">
+def function(n):
+    count = 0
+    if n &lt;= 0:
+        return
+    for i in range(0, n):           # Outer loop executes n times
+        for j in range(0, n):       # Inner loop executes n times
+            count = count + 1
+    function(n-3)                   # Recursive call
+    print(count)
+
+function(20)
+
+</code></pre>
+
+<p>The recursive for this call is <code>T(n) = T(n-3) + cn<sup>2</sup></code> for some constant c &gt; 0. Using Substraction and Conquer master theorem, we get <code>T(n) = Θ(n<sup>3</sup>)</code></p>
+<h4 id="problem-34-consider-the-following-program">Problem-34: Consider the following program.</h4>
+<pre><code class="python">
+def Fib(n):
+    if n == 0: return 0
+    elif n == 1: return 1
+    else: return Fib(n-1) + Fib(n-2)
+
+print(Fib(3))
+
+</code></pre>
+
+<p>The recurrence relation for the running time of this program is: <code>T(n) = T(n-1) + T(n-2) + c</code>. Note T(n) has two recurrence calls indicating a binary tree. Each step recursively calls the program for n reduced by 1 and 2, so the depth of the recurrence tree is O(n). The number of leaves at depth n is 2<sup>n</sup> since this is a full binary tree, and each leaf takes at least O(1) computations for the constant factor. Running time is clearly exponential in n and it is O(2<sup>n</sup>).</p>
+<h4 id="problem-38-what-is-the-running-time-of-the-following-recursive-function">Problem-38: What is the running time of the following recursive function?</h4>
+<pre><code class="python">
+def function(n):
+    if n &lt;= 0:
+        return 0
+    for i in range(0, 3):
+        function(n-1)
+
+function(20)
+
+</code></pre>
+
+<p><code>T(n) = c + 3T(n-1), if n &gt; 1 = Θ(3<sup>n</sup>)</code></p>
+<h4 id="problem-49-find-the-complexity-of-the-below-function">Problem-49: Find the complexity of the below function.</h4>
+<pre><code class="python">
+count = 0
+
+def logarithms(n):
+    i = 1
+    global count
+    while i &lt;= n:
+        j = n
+        while j &gt; 0:
+            j = j // 2              # this loop executes logn times
+            count = count + 1
+            i = i * 2               # this loop executes logn times
+    return count
+
+print(logarithms(10))
+
+</code></pre>
+
+<p><code>T(n) = O(logn * logn) = O(log<sup>2</sup>n)</code></p></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js" defer></script>
+        <script src="../../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>

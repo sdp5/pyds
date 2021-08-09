@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../img/favicon.ico">
+        <title>Quick Review - Python DS</title>
+        <link href="../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../css/font-awesome.min.css" rel="stylesheet">
+        <link href="../css/base.css" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+
+        <script src="../js/jquery-1.10.2.min.js" defer></script>
+        <script src="../js/bootstrap.min.js" defer></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="..">Python DS</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbar-collapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="navitem">
+                                <a href=".." class="nav-link">Home</a>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Chapters 1-7 <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../chapters/linkedlist/" class="dropdown-item">3. Linked List</a>
+</li>
+                                    
+<li>
+    <a href="../chapters/backtracking/" class="dropdown-item">2. Backtracking</a>
+</li>
+                                    
+<li>
+    <a href="../chapters/introduction/" class="dropdown-item">1. Introduction</a>
+</li>
+                                    
+<li>
+    <a href="../chapters/organization/" class="dropdown-item">0. Organization</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">Programs <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="../programs/linked_list/" class="dropdown-item">Linked List</a>
+</li>
+                                </ul>
+                            </li>
+                            <li class="navitem active">
+                                <a href="./" class="nav-link">Quick Review</a>
+                            </li>
+                            <li class="navitem">
+                                <a href="../log/" class="nav-link">Log</a>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-toggle="modal" data-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../programs/linked_list/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../log/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-light navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-toggle="collapse" data-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-level="2"><a href="#data-structure-basics" class="nav-link">Data Structure Basics</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#search-basics" class="nav-link">Search Basics</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#efficient-sorting-basics" class="nav-link">Efficient Sorting Basics</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            
+            <li class="nav-item" data-level="2"><a href="#basic-types-of-algorithms" class="nav-link">Basic Types of Algorithms</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h2 id="data-structure-basics">Data Structure Basics</h2>
+<h3 id="arrays">Arrays</h3>
+<h5 id="definition">Definition</h5>
+<ul>
+<li>Stores data elements based on an sequential, most commonly 0 based, index.</li>
+<li>Based on Tuples from set theory.</li>
+<li>They are one of the oldest, most commonly used data structure.</li>
+<li>Can be many-dimensional to represent matrices</li>
+</ul>
+<h5 id="what-you-need-to-know">What you need to know</h5>
+<ul>
+<li>Optimal for indexing; bad at searching, inserting, and deleting (except at the end).</li>
+<li><strong>Linear Arrays</strong>, or one dimensional arrays are the most basic.<ul>
+<li>Are static in size, meaning that they are declared with a fixed size.</li>
+</ul>
+</li>
+<li><strong>Dynamic Arrays</strong> are like one dimensional arrays, but have reserved space for additional elements.<ul>
+<li>If a dynamic array is full, it copies it's contents to a larger array.</li>
+</ul>
+</li>
+<li><strong>Two Dimensional Arrays</strong> have x and y indices like a grid or nested arrays.</li>
+</ul>
+<h5 id="big-o-efficiency">Big O Efficiency</h5>
+<ul>
+<li><strong>Indexing</strong> Linear Array: O(1), Dynamic Array: O(1)</li>
+<li><strong>Search</strong> Linear Array: O(n), Dynamic Array: O(n)</li>
+<li><strong>Optimized Search</strong> Linear Array: O(log n), Dynamic Array: O(log n) is Binary Search</li>
+<li><strong>Insertion</strong> Linear Array: N/A, Dynamic Array: O(n)</li>
+</ul>
+<h3 id="linked-list">Linked List</h3>
+<h5 id="definition_1">Definition</h5>
+<ul>
+<li>Stores data with <strong>nodes</strong> that points to other nodes.<ul>
+<li>Nodes, at its most basic it has one datum and one reference (another node).</li>
+<li>A linked list <em>chains</em> nodes together by pointing one node's reference towards another node.</li>
+</ul>
+</li>
+</ul>
+<h5 id="what-you-need-to-know_1">What you need to know</h5>
+<ul>
+<li>Designed to optimize insertion and deletion, slow at indexing and searching.</li>
+<li><strong>Doubly linked list</strong> has nodes that also reference the previous node.</li>
+<li><strong>Circular linked list</strong> is simple linked list whose <strong>tail</strong>, the last node, references the <strong>head</strong>, the first node.</li>
+<li><strong>Stack</strong>, commonly implemented with linked lists but can be made from arrays too.<ul>
+<li>Stack are <strong>last in, first out</strong> (LIFO) data structures.</li>
+<li>Made with a linked list by having the head be the only place for insertion and removal.</li>
+</ul>
+</li>
+<li><strong>Queues</strong>, too can be implemented with an linked list or an array.<ul>
+<li>Queues are a <strong>first in, first out</strong> (FIFO) data structure.</li>
+<li>Made with a doubly linked list that only removes from head and adds to tail.</li>
+</ul>
+</li>
+</ul>
+<h5 id="big-o-efficiency_1">Big O Efficiency</h5>
+<ul>
+<li><strong>Indexing</strong> Linked Lists: O(n)</li>
+<li><strong>Search</strong> Linked Lists: O(n)</li>
+<li><strong>Optimized Search</strong> Linked Lists: O(n)</li>
+<li><strong>Insertion</strong> Linked Lists: O(n)</li>
+</ul>
+<h3 id="hash-table-or-hash-map">Hash Table or Hash Map</h3>
+<h5 id="definition_2">Definition</h5>
+<ul>
+<li>Stores data with key value pairs. And don't generally have an order.</li>
+<li><strong>Hash functions</strong> accept arbitrary sized data and map it to fixed size data. The mapping is not guaranteed to be unique.<ul>
+<li>This is known as <strong>hashing</strong>, which is the concept that an input and an output have a one-to-one correspondence to map information.</li>
+<li>Hash functions return a unique address in memory for that data.</li>
+</ul>
+</li>
+</ul>
+<h5 id="what-you-need-to-know_2">What you need to know</h5>
+<ul>
+<li>Designed to optimize searching, insertion, and deletion</li>
+<li><strong>Hash collisions</strong> are when a hash function returns the same output for two distinct inputs.<ul>
+<li>All hash functions have this problem.</li>
+<li>This is often accommodated for by having the hash tables be very large.</li>
+</ul>
+</li>
+<li>Hashes are important for associated arrays and database indexing.</li>
+</ul>
+<h5 id="big-o-efficiency_2">Big O Efficiency</h5>
+<ul>
+<li><strong>Indexing</strong> Hash Tables: O(1)</li>
+<li><strong>Search</strong> Hash Tables: O(1)</li>
+<li><strong>Insertion</strong> Hash Tables: O(1)</li>
+</ul>
+<h3 id="binary-tree">Binary Tree</h3>
+<h5 id="definition_3">Definition</h5>
+<ul>
+<li>Is a tree like data structure where every node has at most two children.<ul>
+<li>There is one left and right child node.</li>
+</ul>
+</li>
+</ul>
+<h5 id="what-you-need-to-know_3">What you need to know</h5>
+<ul>
+<li>Designed to optimize searching and sorting.</li>
+<li>A <strong>degenerate tree</strong> is an unbalanced tree, which if entirely one-sided is an essentially a linked list.</li>
+<li>They are comparably simple to implement than other data structures.</li>
+<li>Used to make <strong>binary search trees</strong>.<ul>
+<li>A binary tree that uses comparable keys to assign which direction a child is.</li>
+<li>Left child has a key smaller than it's parent node.</li>
+<li>Right child has a key greater than it's parent node.</li>
+<li>There can be no duplicate node.</li>
+<li>Because of the above it is more likely to be used as a data structure than a binary tree.</li>
+</ul>
+</li>
+</ul>
+<h5 id="big-o-efficiency_3">Big O Efficiency</h5>
+<ul>
+<li><strong>Indexing</strong> Binary Search Tree: O(log n)</li>
+<li><strong>Search</strong> Binary Search Tree: O(log n)</li>
+<li><strong>Insertion</strong> Binary Search Tree: O(log n)</li>
+</ul>
+<h2 id="search-basics">Search Basics</h2>
+<h3 id="breadth-first-search">Breadth First Search</h3>
+<h5 id="definition_4">Definition</h5>
+<ul>
+<li>An algorithm that searches a tree (or graph) by searching levels of the tree first, starting at the root.<ul>
+<li>It finds every node on the same level, most often moving left to right.</li>
+<li>While doing this, it tracks the children nodes of the nodes on the current level.</li>
+<li>When finishing examining a level it moves to the left most node on the next level.</li>
+<li>The bottom-right most node is evaluated last (the node that is deepest and is farthest right of it's level).</li>
+</ul>
+</li>
+</ul>
+<h5 id="what-you-need-to-know_4">What you need to know</h5>
+<ul>
+<li>Optimal for searching a tree that is wider than it is deep.</li>
+<li>Uses a queue to store information about the tree while it traverses a tree.<ul>
+<li>Because it uses a queue it is more memory intensive than <strong>depth first search</strong>.</li>
+<li>The queue uses more memory because it needs to store pointers.</li>
+</ul>
+</li>
+</ul>
+<h5 id="big-o-efficiency_4">Big O Efficiency</h5>
+<ul>
+<li><strong>Search</strong> Breadth First Search: O(|E| + |V|)</li>
+<li>E is number of edges</li>
+<li>V is number of vertices</li>
+</ul>
+<h3 id="depth-first-search">Depth First Search</h3>
+<ul>
+<li>An algorithm that searches a tree (or graph) by searching depth of the tree first, starting at the root.<ul>
+<li>It traverses left down a tree until it cannot go further.</li>
+<li>Once it reaches the end of a branch it traverses back up trying the right child of nodes on that branch, and if possible left from that right children.</li>
+<li>When finished examining a branch it moves to the node right of the root then tries to go left on all it's children until it reaches the bottom.</li>
+<li>The right most node is evaluated last (the node that is right of all it's ancestors).</li>
+</ul>
+</li>
+</ul>
+<h5 id="what-you-need-to-know_5">What you need to know</h5>
+<ul>
+<li>Optimal for searching a tree that is deeper than it is wide.</li>
+<li>Uses a stack to push nodes onto.<ul>
+<li>Because a stack is LIFO it does not need to keep track of the nodes pointers and is therefore less memory intensive than <strong>breadth first search</strong>.</li>
+<li>Once it cannot go further left it begins evaluating the stack.</li>
+</ul>
+</li>
+</ul>
+<h5 id="big-o-efficiency_5">Big O Efficiency</h5>
+<ul>
+<li><strong>Search</strong> Depth First Search: O(|E| + |V|)</li>
+<li>E is number of edges.</li>
+<li>V is number of vertices.</li>
+</ul>
+<h4 id="breadth-first-search-vs-depth-first-search">Breadth First Search Vs Depth First Search</h4>
+<ul>
+<li>The simple to this question is that it depends on the size and shape of the tree.<ul>
+<li>For wide, shallow trees use Breadth First Search</li>
+<li>For deep, narrow trees use Depth First Search</li>
+</ul>
+</li>
+</ul>
+<h4 id="nuances">Nuances:</h4>
+<ul>
+<li>Because BFS uses queues to store information about the nodes and it's children, it could use more memory than is available on your computer. (But you probably won't have to worry about this.)</li>
+<li>If using a DFS on a tree that is very deep you might go unnecessarily deep in the search.</li>
+<li>Breadth First Search tends to be a looping algorithm.</li>
+<li>Depth First Search tends to be a recursive algorithm.</li>
+<li>Breadth-first search is guaranteed to find a shortest possible path through a graph. Depth-first search is not (and usually does not).</li>
+<li>DFS and BFS have no defined order in which the elements are searched.</li>
+</ul>
+<p>(<em>In the specific case of searching a tree for a specific node, there is only one possible path, so both will return the same result, but search algorithms are very rarely used this way; typically, they operate on arbitrary graphs.</em></p>
+<p><em>Additionally worth knowing is that most practically-used searching and pathfinding algorithms (e.g. Dijkstra's algorithm, A) are specializations of breadth-first search.</em>)</p>
+<h4 id="worst-case-space-complexity">Worst case space complexity:</h4>
+<h5 id="data-structures">Data Structures:</h5>
+<ul>
+<li>Array: O(n)</li>
+<li>Linked List: O(n)</li>
+<li>Hash Table: O(n)</li>
+<li>BST: O(n)</li>
+</ul>
+<h5 id="sorting">Sorting:</h5>
+<ul>
+<li>Quick Sort: O(log(n))</li>
+<li>Merge Sort: O(n)</li>
+<li>Bubble Sort: O(1)</li>
+</ul>
+<h2 id="efficient-sorting-basics">Efficient Sorting Basics</h2>
+<h3 id="merge-sort">Merge Sort</h3>
+<h5 id="definition_5">Definition</h5>
+<ul>
+<li>A comparision based sorting algorithm<ul>
+<li>Divides entire data set into groups of at most two.</li>
+<li>Compares each number one at a time, moving the smallest number to left of the pair.</li>
+<li>Once all pairs sorted then, it compares left most elements of the two left most pairs creating a sorted group of four with the smallest numbers on the left and the largest ones on the right.</li>
+<li>This process is repeated until there is only one set.</li>
+</ul>
+</li>
+</ul>
+<h5 id="what-you-need-to-know_6">What you need to know</h5>
+<ul>
+<li>This is one of the most basic sorting algorithms.</li>
+<li>Know that it divides all the data into as small possible sets then compares them.</li>
+</ul>
+<h5 id="big-o-efficiency_6">Big O Efficiency</h5>
+<ul>
+<li>Best Case Sort: Merge Sort O(n log n)</li>
+<li>Average Case Sort: Merge Sort O(n log n)</li>
+<li>Worst Case Sort: Merge Sort O(n log n)</li>
+</ul>
+<h3 id="quick-sort">Quick Sort</h3>
+<h5 id="definition_6">Definition</h5>
+<ul>
+<li>A comparision based sorting algorithm<ul>
+<li>Divides entire dataset in half by selecting the middle element and putting all smaller elements to the left of the average.</li>
+<li>It repeats this process on the left side until it is comparing only two elements at which point the left side is sorted.</li>
+<li>When the left side is finished sorting it performs the same operation on the right side.</li>
+</ul>
+</li>
+<li>Computer architecture favours the quicksort process.</li>
+</ul>
+<p>(Edit: <em>Quicksort picks a random element from the dataset as the pivot element, then sorts all elements smaller before that and all greater than the pivot after it.
+Then quicksort is executed on the part left of the pivot and right of it</em>.)</p>
+<h5 id="what-you-need-to-know_7">What you need to know</h5>
+<ul>
+<li>While it has the same Big O as (or worse in some cases) many other sorting algorithms it is often faster in practice than merge sort.</li>
+<li>Know that it halves the data set by the average continuously until all the information is sorted.</li>
+</ul>
+<h5 id="big-o-efficiency_7">Big O Efficiency</h5>
+<ul>
+<li>Best Case Sort: Quick Sort: O(n)</li>
+<li>Average Case Sort: Quick Sort: O(n log n)</li>
+<li>Worst Case Sort: Quick Sort: O(n^2)</li>
+</ul>
+<h3 id="bubble-sort">Bubble Sort</h3>
+<h5 id="definition_7">Definition</h5>
+<ul>
+<li>A comparision based sorting algorithm<ul>
+<li>It iterates left to right comparing every couplet, moving the smaller element to the left.</li>
+<li>It repeats this process until it no longer moves an element to the left.</li>
+</ul>
+</li>
+</ul>
+<h5 id="what-you-need-to-know_8">What you need to know</h5>
+<ul>
+<li>While it is very simple to implement, it is the least efficient of these three sorting methods.</li>
+<li>Know that it moves one space to the right comparing two elements at a time and moving the smaller on to left.</li>
+</ul>
+<h5 id="big-o-efficiency_8">Big O Efficiency</h5>
+<ul>
+<li>Best Case Sort: Bubble Sort: O(n)</li>
+<li>Average Case Sort: Bubble Sort: O(n^2)</li>
+<li>Worst Case Sort: Bubble Sort: O(n^2)</li>
+</ul>
+<h4 id="merge-sort-vs-quick-sort">Merge Sort vs Quick Sort</h4>
+<ul>
+<li>Quick Sort is likely faster in practice.</li>
+<li>Merge Sort divides the set into the smaller possible groups immediately then reconstructs the incrementally as it sorts the groupings.</li>
+<li>Quick Sort continually divides the set by the average, until the set is recursively sorted.</li>
+</ul>
+<h2 id="basic-types-of-algorithms">Basic Types of Algorithms</h2>
+<h3 id="recursive-algorithms">Recursive Algorithms</h3>
+<h5 id="definition_8">Definition</h5>
+<ul>
+<li>An algorithm that calls itself in it's definition.<ul>
+<li><strong>Recursive case</strong> is a conditional statement that is used to trigger the recursion.</li>
+<li><strong>Base case</strong> is a conditional statement that is used to break the recursion.</li>
+</ul>
+</li>
+</ul>
+<h5 id="what-you-need-to-know_9">What you need to know</h5>
+<ul>
+<li><strong>Stack level too deep</strong> and <strong>stack overflow</strong><ul>
+<li>If you have seen either of these from a recursive algorithm, you messed up.</li>
+<li>It means that your base case was never triggered because it was faulty or the problem was so massive you ran out of stack before reaching it.</li>
+<li>Knowing weather or not you will reach a base case is integral to correctly using recursion.</li>
+<li>Often used in <strong>Depth First Search</strong>.</li>
+</ul>
+</li>
+</ul>
+<h3 id="iterative-algorithms">Iterative Algorithms</h3>
+<h5 id="definition_9">Definition</h5>
+<ul>
+<li>An algorithm that is called repeatedly but for a finite number of times, each time being a single iteration.<ul>
+<li>Often used to move incrementally through a data set.</li>
+</ul>
+</li>
+</ul>
+<h5 id="what-you-need-to-know_10">What you need to know</h5>
+<ul>
+<li>Generally you will see iteration as loops: for, while and until statements.</li>
+<li>Think of iteration as moving one at a time through a set.</li>
+<li>Often used to move through an array.</li>
+</ul>
+<h5 id="recursion-vs-iteration">Recursion vs Iteration</h5>
+<ul>
+<li>The differences between recursion and iteration can be confusing to distinguish since both can be used to implement the other. But know that,<ul>
+<li>Recursion is, usually, more expressive and easier to implement.</li>
+<li>Iteration uses less memory. (<em>that's not true when the compiler or interpreter supports tail-call elimination, or can otherwise optimize recursive functions.</em>)</li>
+</ul>
+</li>
+<li><strong>Functional languages</strong> tend to use recursion. (i.e. Haskell)</li>
+<li><strong>Imperative languages</strong> tend to use iteration. (i.e. Ruby)</li>
+</ul>
+<h3 id="greedy-algorithm">Greedy Algorithm</h3>
+<h5 id="definition_10">Definition</h5>
+<ul>
+<li>An algorithm that, while executing, selects only the information that meets a certain criteria.</li>
+<li>The general five components:<ul>
+<li>A candidate set, from which a solution is created.</li>
+<li>A selection function, which chooses the best candidate to be added to the solution.</li>
+<li>A feasibility function, that is used to determine if a candidate can be used to contribute to a solution.</li>
+<li>An objective function, which assigns a valve to a solution, or a partial solution.</li>
+<li>A solution function, which indicate when we have discovered a complete solution.</li>
+</ul>
+</li>
+</ul>
+<h5 id="what-you-need-to-know_11">What you need to know</h5>
+<ul>
+<li>Used to find the optimal solution to a given problem.</li>
+<li>Generally used on sets of data where only a small proportion of the information evaluated meets the desired result.</li>
+<li>Often a greedy algorithm can help reduce the Big O of an algorithm.</li>
+</ul>
+<h5 id="pseudo-code-of-a-greedy-algorithm-to-find-largest-difference-of-any-two-numbers-in-an-array">Pseudo Code of a Greedy Algorithm to find largest difference of any two numbers in an array</h5>
+<pre><code class="bash">greedy algorithm (array)
+    var largest difference = 0
+    var new difference = find next difference (array[n], array[n+1])
+    largest difference = new difference if new difference is &gt; largest difference
+    repeat above two steps until all the differences have been found
+    return largest difference
+</code></pre>
+
+<p>This algorithm never needed to compare all the differences to one another, saving it an entire iteration.</p>
+<h3 id="stream-io">Stream I/O</h3>
+<h5 id="definition_11">Definition</h5>
+<ul>
+<li>A stream is an abstract representation of sequence of bytes.</li>
+<li>It is usually buffered to prevent representing the entire sequence of bytes in memory at one time.</li>
+<li>Generally one-way and forward-only</li>
+<li>Has significant advantages over a standard array of bytes</li>
+</ul>
+<h5 id="what-you-need-to-know_12">What you need to know</h5>
+<ul>
+<li>
+<p>Can be stored:</p>
+<ul>
+<li>In memory</li>
+<li>Transferred over a network</li>
+<li>On disk</li>
+<li>In a database</li>
+</ul>
+</li>
+<li>
+<p>Advantages over byte arrays</p>
+<ul>
+<li>Efficient use of memory</li>
+<li>Smaller memory footprint</li>
+</ul>
+</li>
+<li>
+<p>Uses</p>
+<ul>
+<li>Transferring files between persistence locations</li>
+<li>Compression / Decompression</li>
+<li>Encryption / Decryption</li>
+<li>Throttling</li>
+</ul>
+</li>
+<li>
+<p>Can be chained</p>
+</li>
+<li>Some are one-way (NetworkStream, CipherStream, etc), others can seek in either direction.</li>
+</ul>
+<h3 id="summary">Summary</h3>
+<table>
+<thead>
+<tr>
+<th>S.No.</th>
+<th>Name</th>
+<th>Indexing</th>
+<th>Search</th>
+<th>Insertion</th>
+<th>Optimized Search</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Linear Array</td>
+<td>O(1)</td>
+<td>O(n)</td>
+<td>N/A</td>
+<td>O(log n)</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Dynamic Array</td>
+<td>O(1)</td>
+<td>O(n)</td>
+<td>o(n)</td>
+<td>O(log n)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Linked List</td>
+<td>O(n)</td>
+<td>O(n)</td>
+<td>O(1)</td>
+<td>O(n)</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Hash Table</td>
+<td>O(1)</td>
+<td>O(1)</td>
+<td>O(1)</td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td>Binary Tree</td>
+<td>O(log n)</td>
+<td>O(log n)</td>
+<td>O(log n)</td>
+<td></td>
+</tr>
+</tbody>
+</table></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script>
+            var base_url = "..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../js/base.js" defer></script>
+        <script src="../search/main.js" defer></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+                <p>
+                    From here you can search these documents. Enter
+                    your search terms below.
+                </p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
