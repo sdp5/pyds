@@ -1,8 +1,8 @@
-site_name: Python A.DS
+site_name: Python DS
 nav:
     - Home: index.md
     - Chapters 1-7:
-        - 3. LinkedList: chapters/linkedlist.md
+        - 3. Linked List: chapters/linkedlist.md
         - 2. Backtracking: chapters/backtracking.md
         - 1. Introduction: chapters/introduction.md
         - 0. Organization: chapters/organization.md
