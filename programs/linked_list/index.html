@@ -228,6 +228,10 @@ class LinkedList:
             return
 
         if index == self.get_length() - 1:
+            if self.tail.prev is None:
+                self.head = None
+                self.tail = None
+                return
             self.tail = self.tail.prev
             self.tail.next = None
             return
