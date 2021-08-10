@@ -8,6 +8,7 @@ nav:
         - 0. Organization: chapters/organization.md
     - Programs:
         - Linked List: programs/linked_list.md
+        - Hash Table: programs/hash_table.md
     - Quick Review: review.md
     - Log: log.md
 theme: mkdocs
