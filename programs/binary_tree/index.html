@@ -8,7 +8,7 @@
         
         
         <link rel="shortcut icon" href="../../img/favicon.ico">
-        <title>Hash Table - Python DS</title>
+        <title>Binary Tree - Python DS</title>
         <link href="../../css/bootstrap.min.css" rel="stylesheet">
         <link href="../../css/font-awesome.min.css" rel="stylesheet">
         <link href="../../css/base.css" rel="stylesheet">
@@ -66,7 +66,7 @@
 </li>
                                     
 <li>
-    <a href="./" class="dropdown-item active">Hash Table</a>
+    <a href="../hash_table/" class="dropdown-item">Hash Table</a>
 </li>
                                     
 <li>
@@ -78,7 +78,7 @@
 </li>
                                     
 <li>
-    <a href="../binary_tree/" class="dropdown-item">Binary Tree</a>
+    <a href="./" class="dropdown-item active">Binary Tree</a>
 </li>
                                     
 <li>
@@ -105,12 +105,12 @@
                             </a>
                         </li>
                             <li class="nav-item">
-                                <a rel="prev" href="../linked_list/" class="nav-link">
+                                <a rel="prev" href="../graph/" class="nav-link">
                                     <i class="fa fa-arrow-left"></i> Previous
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a rel="next" href="../tree/" class="nav-link">
+                                <a rel="next" href="../binary_search/" class="nav-link">
                                     Next <i class="fa fa-arrow-right"></i>
                                 </a>
                             </li>
@@ -132,7 +132,7 @@
     <div id="toc-collapse" class="navbar-collapse collapse card bg-secondary">
         <ul class="nav flex-column">
             
-            <li class="nav-item" data-level="1"><a href="#hash-table" class="nav-link">Hash Table</a>
+            <li class="nav-item" data-level="1"><a href="#binary-tree" class="nav-link">Binary Tree</a>
               <ul class="nav flex-column">
               </ul>
             </li>
@@ -141,136 +141,177 @@
 </div></div>
                     <div class="col-md-9" role="main">
 
-<h1 id="hash-table">Hash Table</h1>
+<h1 id="binary-tree">Binary Tree</h1>
 <pre><code class="python">
 #!/usr/bin/env python3
 
-
-class HashTable:
-
-    def __init__(self):
-        self.MAX = 10
-        self.arr = [None for _ in range(self.MAX)]
-
-    def get_hash(self, key):
-        h = 0
-        for char in key:
-            h += ord(char)
-        return h % self.MAX
-
-    def __setitem__(self, key, value):
-        h = self.get_hash(key)
-        self.arr[h] = value
-
-    def __getitem__(self, item):
-        h = self.get_hash(item)
-        return self.arr[h]
-
-    def __delitem__(self, key):
-        h = self.get_hash(key)
-        self.arr[h] = None
+from functools import reduce
 
 
-if __name__ == '__main__':
+class BinarySearchTreeNode:
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
 
-    hT = HashTable()
-    hT[&quot;Key One&quot;] = &quot;ABC&quot;
-    hT[&quot;Key Two&quot;] = &quot;PQR&quot;
-    hT[&quot;Key Three&quot;] = &quot;LMN&quot;
-    hT[&quot;Key Four&quot;] = &quot;XYZ&quot;
+    def add_child(self, data):
+        if data == self.data:
+            return
+        if data &lt; self.data:
+            if self.left:
+                self.left.add_child(data)
+            else:
+                self.left = BinarySearchTreeNode(data)
+        else:
+            if self.right:
+                self.right.add_child(data)
+            else:
+                self.right = BinarySearchTreeNode(data)
 
-    print(&quot;Value at Key Three is {}&quot;.format(hT[&quot;Key Three&quot;]))
-    print(&quot;Value at Key One is {}&quot;.format(hT[&quot;Key One&quot;]))
+    def in_order_traversal(self):
+        elements = []
+        if self.left:
+            elements += self.left.in_order_traversal()
+        elements += [self.data]
+        if self.right:
+            elements += self.right.in_order_traversal()
+        return elements
 
-    del hT[&quot;Key Two&quot;]
-    print(hT.arr)
+    def search(self, val):
+        if self.data == val:
+            return True
+        if val &lt; self.data:
+            if self.left:
+                return self.left.search(val)
+            else:
+                return False
+        if val &gt; self.data:
+            if self.right:
+                return self.right.search(val)
+            else:
+                return False
 
-</code></pre>
+    def find_min(self):
+        if not self.left:
+            return self.data
+        return self.left.find_min()
 
-<pre><code class="python">
-#!/usr/bin/env python3
-# Hash Table: Collision Handling
+    def find_max(self):
+        if not self.right:
+            return self.data
+        return self.right.find_max()
+
+    def calculate_sum(self):
+        return reduce(
+            lambda x, y: x+y, self.in_order_traversal()
+        )
+
+    def post_order_traversal(self):
+        elements = []
+        if self.left:
+            elements += self.left.in_order_traversal()
+        if self.right:
+            elements += self.right.in_order_traversal()
+        elements += [self.data]
+        return elements
+
+    def pre_order_traversal(self):
+        elements = []
+        elements += [self.data]
+        if self.left:
+            elements += self.left.in_order_traversal()
+        if self.right:
+            elements += self.right.in_order_traversal()
+        return elements
+
+    def breadth_first_traversal(self):
+        elements = []
+        elements += [self.data]
+        if self.left:
+            elements += [self.left.data]
+        if self.right:
+            elements += [self.right.data]
+        left, right = self.left, self.right
+        while left and right:
+            if left.left:
+                elements += [left.left.data]
+            if left.right:
+                elements += [left.right.data]
+            if right.left:
+                elements += [right.left.data]
+            if right.right:
+                elements += [right.right.data]
+            left, right = left.left, right.right
+        return elements
+
+    def delete(self, val):
+        if val &lt; self.data:
+            if self.left:
+                self.left = self.left.delete(val)
+        elif val &gt; self.data:
+            if self.right:
+                self.right = self.right.delete(val)
+        else:
+            if not self.left and not self.right:
+                return
+            if not self.left:
+                return self.right
+            if not self.right:
+                return self.left
+
+            # min_val = self.right.find_min()
+            # self.data = min_val
+            # self.right = self.right.delete(min_val)
+
+            # or, take max from left subtree
+            max_val = self.left.find_max()
+            self.data = max_val
+            self.left = self.left.delete(max_val)
+        return self
 
 
-class HashTable:
-    def __init__(self):
-        self.MAX = 10
-        self.arr = [list() for _ in range(self.MAX)]
-
-    def get_hash(self, key):
-        key_hash = 0
-        for char in key:
-            key_hash += ord(char)
-        return key_hash % self.MAX
-
-    def __getitem__(self, item):
-        h = self.get_hash(item)
-        for elem in self.arr[h]:
-            if item == elem[0]:
-                return elem[1]
-
-    def __setitem__(self, key, value):
-        h = self.get_hash(key)
-        found = False
-
-        for idx, elem in enumerate(self.arr[h]):
-            if len(elem) == 2 and elem[0] == key:
-                self.arr[h][idx] = (key, value)
-                found = True
-                break
-        if not found:
-            self.arr[h].append((key, value))
-
-    def __delitem__(self, key):
-        h = self.get_hash(key)
-        for elem in self.arr[h]:
-            if key == elem[0]:
-                self.arr[h].remove(elem)
-
-    def print(self):
-        print(&quot;____&quot;)
-        for idx, elem in enumerate(self.arr):
-            print(&quot;{}: {}&quot;.format(idx, elem))
+def build_tree(elements):
+    root = BinarySearchTreeNode(elements[0])
+    for i in elements:
+        root.add_child(i)
+    return root
 
 
 if __name__ == &quot;__main__&quot;:
+    numbers = [17, 4, 1, 20, 9, 23, 18, 34]
+    countries = [
+        &quot;India&quot;,
+        &quot;Pakistan&quot;,
+        &quot;Germany&quot;,
+        &quot;USA&quot;,
+        &quot;China&quot;,
+        &quot;India&quot;,
+        &quot;UK&quot;,
+        &quot;USA&quot;
+    ]
 
-    ht = HashTable()
-    ht['march 6'] = 120
-    ht['march 6'] = 78
-    ht['march 8'] = 67
-    ht['march 9'] = 4
-    ht['march 17'] = 459
-    ht.print()
-    # ____
-    # 0: []
-    # 1: [('march 8', 67)]
-    # 2: [('march 9', 4)]
-    # 3: []
-    # 4: []
-    # 5: []
-    # 6: []
-    # 7: []
-    # 8: []
-    # 9: [('march 6', 78), ('march 17', 459)]
+    numbers_tree = build_tree(numbers)
+    print(numbers_tree.in_order_traversal())
+    print(numbers_tree.search(210))
+    print(numbers_tree.find_min())
+    print(numbers_tree.find_max())
+    print(numbers_tree.calculate_sum())
+    print(numbers_tree.post_order_traversal())
+    print(numbers_tree.pre_order_traversal())
+    print(numbers_tree.breadth_first_traversal())
+    numbers_tree.delete(9)
+    print(&quot;After deleting 9&quot;, numbers_tree.breadth_first_traversal())
+    numbers_tree.delete(23)
+    print(&quot;After deleting 23&quot;, numbers_tree.breadth_first_traversal())
+    numbers_tree.delete(17)
+    print(&quot;After deleting 17&quot;, numbers_tree.breadth_first_traversal())
 
-    print(ht['march 17'])
-    # 459
+    countries_tree = build_tree(countries)
+    print(countries_tree.in_order_traversal())
+    print(&quot;UK is in the list? &quot;, countries_tree.search(&quot;UK&quot;))
+    print(&quot;Sweden is in the list? &quot;, countries_tree.search(&quot;Sweden&quot;))
 
-    del ht['march 9']
-    del ht['march 6']
-    ht.print()
-    # ____
-    # 0: []
-    # 1: [('march 8', 67)]
-    # 2: []
-    # 3: []
-    # 4: []
-    # 5: []
-    # 6: []
-    # 7: []
-    # 8: []
-    # 9: [('march 17', 459)]
+
 </code></pre></div>
             </div>
         </div>
