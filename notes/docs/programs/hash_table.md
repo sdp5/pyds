@@ -52,7 +52,7 @@ if __name__ == '__main__':
 # Hash Table: Collision Handling
 
 
-class HastTable:
+class HashTable:
     def __init__(self):
         self.MAX = 10
         self.arr = [list() for _ in range(self.MAX)]
@@ -95,7 +95,7 @@ class HastTable:
 
 if __name__ == "__main__":
 
-    ht = HastTable()
+    ht = HashTable()
     ht['march 6'] = 120
     ht['march 6'] = 78
     ht['march 8'] = 67

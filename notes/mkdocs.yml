@@ -9,6 +9,11 @@ nav:
     - Programs:
         - Linked List: programs/linked_list.md
         - Hash Table: programs/hash_table.md
+        - Tree: programs/tree.md
+        - Graph: programs/graph.md
+        - Binary Tree: programs/binary_tree.md
+        - Binary Search: programs/binary_search.md
+        - Recursion: programs/recursion.md
     - Quick Review: review.md
     - Log: log.md
 theme: mkdocs
