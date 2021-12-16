@@ -1,4 +1,105 @@
-# Doubly linked list
+## Singly linked list
+#### Reverse and Pair-swap
+
+```python
+
+#!/usr/bin/env python3
+
+class Node:
+    def __init__(self, val, next=None):
+        self.val = val
+        self.next = next
+
+
+class LinkedList:
+    head = None
+
+    def last_node(self):
+        itr = self.head
+        while itr.next:
+            itr = itr.next
+        return itr
+
+    def add_node(self, val):
+        new_node = Node(val)
+        if not self.head:
+            self.head = new_node
+        else:
+            self.last_node().next = new_node
+
+    def print_list(self):
+        itr = self.head
+        while itr:
+            print(f"{itr.val}", end="")
+            if itr.next:
+                print(" -> ", end="")
+            itr = itr.next
+        print("")
+
+    def reverse(self):
+        prev = None
+        curr = self.head
+        next = None
+
+        while curr:
+            next = curr.next
+            curr.next = prev
+            prev, curr = curr, next
+        self.head = prev
+
+    def is_empty(self):
+        return self.head is None
+
+    def swap(self):
+        if self.is_empty():
+            return
+        curr = self.head
+        next = curr.next
+        new_head = None
+
+        while next:
+            if not next.next:
+                curr.next = None
+                next.next = curr
+                if not new_head:
+                    new_head = next
+                break
+            p1 = curr.next.next
+            p2 = next.next.next
+            curr.next = next.next \
+                if not next.next.next \
+                else next.next.next
+            next.next = curr
+            if not new_head:
+                new_head = next
+            curr, next = p1, p2
+
+        if new_head:
+            self.head = new_head
+
+
+if __name__ == "__main__":
+    ll = LinkedList()
+    ll.add_node(88)
+    ll.add_node(34)
+    ll.add_node(12)
+    ll.add_node(90)
+    ll.add_node(10)
+    ll.add_node(90)
+    ll.add_node(75)
+    ll.add_node(64)
+
+    ll.print_list()
+    ll.reverse()
+    ll.print_list()
+    ll.swap()
+    ll.print_list()
+
+
+```
+
+
+## Doubly linked list
 
 ```python
 
